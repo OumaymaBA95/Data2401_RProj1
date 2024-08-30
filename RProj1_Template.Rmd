@@ -83,7 +83,7 @@ x_shape_y: y-values for the x_shape dataset
 
 First let's plot the data in the dino dataset:
 
-```{r plot-dino, fig.height=3, fig.width=6}
+```
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
@@ -92,9 +92,13 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
 
 And next calculate the correlation between `x` and `y` in this dataset:
 
-```{r cor-dino}
+```
 dino_data %>%
   summarize(r = cor(x, y))
+## # A tibble: 1 x 1
+## r
+## <dbl>
+## 1 -0.0645
 ```
 
 ### Exercise 3
