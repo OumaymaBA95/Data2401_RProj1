@@ -17,7 +17,65 @@ library(datasauRus)
 
 ### Exercise 1
 
-(Type your answer to Exercise 1 here. This exercise does not require any R code. **Remove notes like this in the final product that you turn in**)
+- datasaurus_dozen_wide has 142 rows and zero columns (columns are not stated in datasaurus_dozen_wide file)
+
+- There are 26 variables in the datasaurus_dozen_wide file: 
+
+```
+away_x: x-values for the away dataset
+
+away_y: y-values for the away dataset
+
+bullseye_x: x-values for the bullseye dataset
+
+bullseye_y: y-values for the bullseye dataset
+
+circle_x: x-values for the circle dataset
+
+circle_y: y-values for the circle dataset
+
+dino_x: x-values for dinosaur dataset!
+
+dino_y: y-values for dinosaur dataset!
+
+dots_x: x-values for the dots dataset
+
+dots_y: y-values for the dots dataset
+
+h_lines_x: x-values for the h_lines dataset
+
+h_lines_y: y-values for the h_lines dataset
+
+high_lines_x: x-values for the high_lines dataset
+
+high_lines_y: y-values for the high_lines dataset
+
+slant_down_x: x-values for the slant_down dataset
+
+slant_down_y: y-values for the slant_down dataset
+
+slant_up_x: x-values for the slant_up dataset
+
+slant_up_y: y-values for the slant_up dataset
+
+star_x: x-values for the star dataset
+
+star_y: y-values for the star dataset
+
+v_lines_x: x-values for the v_lines dataset
+
+v_lines_y: y-values for the v_lines dataset
+
+wide_lines_x: x-values for the wide_lines dataset
+
+wide_lines_y: y-values for the wide_lines dataset
+
+x_shape_x: x-values for the x_shape dataset
+
+x_shape_y: y-values for the x_shape dataset
+
+```
+
 
 ### Exercise 2
 
