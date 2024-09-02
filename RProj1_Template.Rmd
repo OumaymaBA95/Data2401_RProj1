@@ -95,40 +95,24 @@ And next calculate the correlation between `x` and `y` in this dataset:
 ```
 dino_data %>%
   summarize(r = cor(x, y))
-## # A tibble: 1 x 1
-## r
-## <dbl>
-## 1 -0.0645
+
 ```
 
 ### Exercise 3
 
-(Add code and narrative as needed. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, remember to clean up the narrative by removing these instructions.)
-
-
-
 ```{r plot-star}
-#Necessary libraries
-library(dplyr)     
-library(ggplot2)
-library(datasauRus)
-
 star_data <- datasaurus_dozen %>%
-  filter(dataset == "Star")
-ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+  filter(dataset == "star")
+ggplot(data = star_data, mapping = aes(x = x, y = y)) +
   geom_point()
-
 ```
 
-```
-I'm some text, you should replace me with more meaningful text...
- 
 ```
 {r cor-star}
-# Calculate the correlation
+# Calculate the correlation 
+``` 
 star_correlation <- star_data %>%
   summarize(r = cor(x, y))
-
 print(star_correlation) 
 
 ```
