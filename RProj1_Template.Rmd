@@ -1,11 +1,15 @@
 ---
-title: "Hello R"
+title: "HW 1"
 author: "Oumayma Ben Aoun"
 date: "Data 2401"
-output: html_document
+output: 
+  html_document: 
+    fig_caption: true
+    fig_width: 25
+    fig_height: 25
+    highlight: pygments
+    theme: journal
 ---
-
-MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT. 
 
 ### Load packages
 
@@ -76,54 +80,55 @@ x_shape_y: y-values for the x_shape dataset
 
 ```
 
-
 ### Exercise 2
 
-(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
-
-First let's plot the data in the dino dataset:
-
-```
+```{r plot-dino}
+# Plot 
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
-```
-
-And next calculate the correlation between `x` and `y` in this dataset:
 
 ```
-dino_data %>%
+
+
+```{r cor-dino}
+# Calculate the correlation 
+dino_correlation <- dino_data %>%
   summarize(r = cor(x, y))
+print(dino_correlation) 
 
 ```
+
 
 ### Exercise 3
 
 ```{r plot-star}
+# Plot
 star_data <- datasaurus_dozen %>%
   filter(dataset == "star")
 ggplot(data = star_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-```
-{r cor-star}
-# Calculate the correlation 
-``` 
+ 
+
+```{r cor-star} 
+# Calculate the correlation
 star_correlation <- star_data %>%
   summarize(r = cor(x, y))
 print(star_correlation) 
 
-# The two correlation values are not identical; difference of 0.0015, the difference between them is minimal and likely doesn't indicate a significant change in the underlying relationship between the variables. 
+#The two correlation values are not identical; difference of 0.0015, the difference between them is minimal and likely doesn't indicate a significant change in the underlying relationship between the variables.
 
-```
+``` 
+
+ 
 
 ### Exercise 4
 
-
 ```{r plot-circle}
-
+# Plot  
 circle_data <- datasaurus_dozen %>%
   filter(dataset == "circle")
 ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
@@ -132,15 +137,52 @@ ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
 ```
 
 ```{r cor-circle}
-
+# Calculate the correlation
 circle_correlation <- circle_data %>%
   summarize(r = cor(x, y))
 print(circle_correlation) 
 
-# While the two correlation values are not identical; difference of −0.0038, the difference between them is minimal and likely doesn't indicate a significant change in the underlying relationship between the variables.
+#While the two correlation values are not identical; difference of −0.0038, the difference between them is minimal and likely doesn't indicate a significant change in the underlying relationship between the variables.
 
 ```
 
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)
+```{r plot}
+
+#  Plot all Data-Sets at Once 
+
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
+  geom_point() +
+  facet_wrap(~ dataset, ncol = 3) + 
+  theme(legend.position = "none")
+
+# Using group_by function, generate all the summary correlation coefficients.
+
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print(13)
+
+```
+
+```
+## summarise() ungrouping output (override with .groups argument)
+## # A tibble: 13 x 2
+## dataset r
+##
+## 1 away -0.0641
+## 2 bullseye -0.0686
+## 3 circle -0.0683
+## 4 dino -0.0645
+## 5 dots -0.0603
+## 6 h_lines -0.0617
+## 7 high_lines -0.0685
+## 8 slant_down -0.0690
+## 9 slant_up -0.0686
+## 10 star -0.0630
+## 11 v_lines -0.0694
+## 12 wide_lines -0.0666
+## 13 x_shape -0.0656
+```
+
