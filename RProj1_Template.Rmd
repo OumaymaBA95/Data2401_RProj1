@@ -108,14 +108,28 @@ dino_data %>%
 
 
 ```{r plot-star}
+#Necessary libraries
+library(dplyr)     
+library(ggplot2)
+library(datasauRus)
 
+star_data <- datasaurus_dozen %>%
+  filter(dataset == "Star")
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 
 ```
 
+```
 I'm some text, you should replace me with more meaningful text...
  
-```{r cor-star}
+```
+{r cor-star}
+# Calculate the correlation
+star_correlation <- star_data %>%
+  summarize(r = cor(x, y))
 
+print(star_correlation) 
 
 ```
 
